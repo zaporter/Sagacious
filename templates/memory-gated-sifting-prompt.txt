@@ -1,0 +1,25 @@
+The following is a single step in a super intelligent AI's information-filtering routine. 
+
+The AI to trying to answer the following query: "{{self.question}}"
+
+It stores information in a list format like:
+KNOWLEDGE: {
+    - first fact that is relevant to answering the query
+    - second fact that is important to the query
+    ...
+}
+
+It currently knows:
+KNOWLEDGE: {
+}
+
+The AI is given the following section of text:
+-- BEGIN {{self.filename}}
+{{self.file_contents}}
+-- END {{self.filename}}
+
+The AI has two options:
+1. It can say "EXTEND" which will extend the section of text. This is useful if the section cuts off halfway through a paragraph or through a function definition and the AI wants to see the rest of the section. 
+2. It can respond with "KNOWLEDGE: {...}" with ... replaced with the facts and return the whole KNOWLEDGE struct with the new knowledge that it has learned from the section of text added to the end of the section. If the AI learned nothing about the query from the section of text, it should leave the KNOWLEDGE unchanged.
+
+AI: "
